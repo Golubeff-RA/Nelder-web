@@ -1,0 +1,9 @@
+/NelderMeadSolver/.vs
+build
+.vs
+myenv
+.venv
+.gradio
+function_plot.png
+opt.log
+volume_plot.png
