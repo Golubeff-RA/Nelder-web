@@ -1,7 +1,7 @@
 /NelderMeadSolver/.vs
 build
 .vs
-myenv
+.myvenv
 .venv
 .gradio
 function_plot.png

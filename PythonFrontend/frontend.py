@@ -80,8 +80,6 @@ def optimize(iterations, tolerance, function, point, log_file_path="opt.log"):
     ax_function.set_ylabel("Q(X)")
     ax_function.set_title("Изменение Q(X)")
     ax_function.grid(True)
-    function_plot_path = "function_plot.png"
-    fig_function.savefig(function_plot_path)
     plt.close(fig_function)
 
     fig_volume, ax_volume = plt.subplots()
@@ -90,11 +88,9 @@ def optimize(iterations, tolerance, function, point, log_file_path="opt.log"):
     ax_volume.set_ylabel("Объем")
     ax_volume.set_title("Изменение меры")
     ax_volume.grid(True)
-    volume_plot_path = "volume_plot.png"
-    fig_volume.savefig(volume_plot_path)
     plt.close(fig_volume)
 
-    return function_plot_path, volume_plot_path, str(min_q_x), str(argmin)
+    return fig_function, fig_volume, str(min_q_x), str(argmin)
 
 
 if __name__ == "__main__":
@@ -110,8 +106,8 @@ if __name__ == "__main__":
                 min_q_x = gr.Textbox(label="Min Q(X)")
                 point_c = gr.Textbox(label="argmin(Q(X))")
             with gr.Column(scale=1):
-                function_plot_output = gr.Image(label="График значения функции")
-                volume_plot_output = gr.Image(label="График меры")
+                function_plot_output = gr.Plot(label="График значения функции")
+                volume_plot_output = gr.Plot(label="График меры")
         
 
         optimize_button.click(
